@@ -1,0 +1,64 @@
+theme: jekyll-theme-chirpy
+
+lang: en
+timezone: America/Chicago
+
+title: Swetha GN
+tagline: ML Engineer · Researcher · Writer
+description: >-
+  Daily writings on machine learning, research, and ideas.
+
+url: "https://swetha-gn.github.io"
+baseurl: ""
+
+github:
+  username: swetha-gn
+
+social:
+  name: Swetha GN
+  email: sgendlurnagarajan@gmail.com
+  links:
+    - https://github.com/swetha-gn
+
+avatar: /assets/img/avatar.jpg
+toc: true
+comments:
+  active: ""
+paginate: 10
+
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    block:
+      line_numbers: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: page
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - README.md
+  - LICENSE
+  - Gemfile.lock
+  - node_modules
+  - vendor
