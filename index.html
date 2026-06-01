@@ -1,0 +1,440 @@
+---
+layout: page
+title: WaveGuide
+permalink: /
+---
+
+<style>
+  :root {
+    --wave-bg: #050816;
+    --wave-card: rgba(15, 23, 42, 0.78);
+    --wave-card-strong: rgba(15, 23, 42, 0.94);
+    --wave-text: #e5f0ff;
+    --wave-muted: #9fb3c8;
+    --wave-cyan: #38bdf8;
+    --wave-violet: #a78bfa;
+    --wave-green: #34d399;
+    --wave-pink: #f472b6;
+    --wave-border: rgba(148, 163, 184, 0.18);
+  }
+
+  .wave-home {
+    color: var(--wave-text);
+    margin: -1rem auto 2rem;
+  }
+
+  .wave-home * {
+    box-sizing: border-box;
+  }
+
+  .wave-hero,
+  .wave-panel,
+  .wave-card {
+    border: 1px solid var(--wave-border);
+    background: var(--wave-card);
+    box-shadow: 0 24px 80px rgba(2, 8, 23, 0.38);
+    backdrop-filter: blur(18px);
+  }
+
+  .wave-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    min-height: 540px;
+    padding: clamp(2rem, 5vw, 4.5rem);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(56, 189, 248, 0.34), transparent 30%),
+      radial-gradient(circle at 86% 16%, rgba(167, 139, 250, 0.32), transparent 28%),
+      radial-gradient(circle at 72% 82%, rgba(52, 211, 153, 0.20), transparent 26%),
+      linear-gradient(135deg, #07111f 0%, #0b1025 52%, #160a2f 100%);
+  }
+
+  .wave-hero::before {
+    content: "";
+    position: absolute;
+    inset: -20%;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: radial-gradient(circle at 50% 30%, black 0%, transparent 72%);
+  }
+
+  .wave-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -10% -45% -10%;
+    height: 48%;
+    background: repeating-radial-gradient(ellipse at center, rgba(56, 189, 248, 0.26) 0 2px, transparent 2px 18px);
+    opacity: 0.55;
+    transform: rotate(-5deg);
+  }
+
+  .wave-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 880px;
+  }
+
+  .wave-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid rgba(56, 189, 248, 0.32);
+    border-radius: 999px;
+    color: #c7f9ff;
+    background: rgba(8, 47, 73, 0.5);
+    font-size: 0.86rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .wave-kicker span {
+    width: 0.62rem;
+    height: 0.62rem;
+    border-radius: 999px;
+    background: var(--wave-green);
+    box-shadow: 0 0 26px var(--wave-green);
+  }
+
+  .wave-title {
+    margin: 1.4rem 0 1rem;
+    max-width: 880px;
+    color: white;
+    font-size: clamp(2.8rem, 8vw, 6.6rem);
+    line-height: 0.94;
+    letter-spacing: -0.08em;
+  }
+
+  .wave-gradient-text {
+    background: linear-gradient(100deg, #7dd3fc, #c4b5fd 48%, #86efac 88%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .wave-lede {
+    max-width: 760px;
+    color: #cbd5e1;
+    font-size: clamp(1.08rem, 2vw, 1.34rem);
+    line-height: 1.7;
+  }
+
+  .wave-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .wave-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 48px;
+    padding: 0.85rem 1.15rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.26);
+    color: var(--wave-text) !important;
+    text-decoration: none !important;
+    background: rgba(15, 23, 42, 0.72);
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .wave-button.primary {
+    border-color: rgba(56, 189, 248, 0.55);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.92), rgba(124, 58, 237, 0.92));
+    box-shadow: 0 12px 40px rgba(56, 189, 248, 0.24);
+  }
+
+  .wave-button:hover {
+    transform: translateY(-2px);
+    border-color: rgba(125, 211, 252, 0.72);
+    box-shadow: 0 18px 50px rgba(2, 8, 23, 0.28);
+  }
+
+  .wave-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2.4rem;
+    max-width: 900px;
+  }
+
+  .wave-metric {
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 20px;
+    padding: 1rem;
+    background: rgba(2, 6, 23, 0.45);
+  }
+
+  .wave-metric strong {
+    display: block;
+    color: white;
+    font-size: clamp(1.35rem, 3vw, 2.1rem);
+    letter-spacing: -0.04em;
+  }
+
+  .wave-metric span {
+    display: block;
+    color: var(--wave-muted);
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .wave-section {
+    margin-top: 2.2rem;
+  }
+
+  .wave-section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .wave-section h2 {
+    margin: 0;
+    color: var(--wave-text);
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    letter-spacing: -0.05em;
+  }
+
+  .wave-section p {
+    color: var(--wave-muted);
+  }
+
+  .wave-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .wave-grid.two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wave-card,
+  .wave-panel {
+    border-radius: 24px;
+    padding: 1.35rem;
+  }
+
+  .wave-card h3,
+  .wave-panel h3 {
+    margin-top: 0;
+    color: white;
+    letter-spacing: -0.03em;
+  }
+
+  .wave-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .wave-chip {
+    display: inline-flex;
+    border: 1px solid rgba(125, 211, 252, 0.22);
+    border-radius: 999px;
+    padding: 0.38rem 0.68rem;
+    color: #dbeafe;
+    background: rgba(14, 165, 233, 0.10);
+    font-size: 0.82rem;
+  }
+
+  .wave-project {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wave-project::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--wave-cyan), var(--wave-violet), var(--wave-green));
+  }
+
+  .wave-result {
+    color: #7dd3fc;
+    font-weight: 700;
+  }
+
+  .wave-timeline {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .wave-role {
+    display: grid;
+    grid-template-columns: minmax(140px, 0.36fr) 1fr;
+    gap: 1rem;
+    border-left: 3px solid rgba(56, 189, 248, 0.52);
+    padding: 0.6rem 0 0.6rem 1rem;
+  }
+
+  .wave-role time {
+    color: #93c5fd;
+    font-weight: 700;
+  }
+
+  .wave-role strong {
+    color: white;
+  }
+
+  .wave-post-list {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .wave-post {
+    display: block;
+    padding: 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 18px;
+    color: var(--wave-text) !important;
+    text-decoration: none !important;
+    background: rgba(2, 6, 23, 0.32);
+  }
+
+  .wave-post span {
+    display: block;
+    color: var(--wave-muted);
+    font-size: 0.86rem;
+  }
+
+  .wave-cta {
+    background:
+      radial-gradient(circle at 10% 20%, rgba(244, 114, 182, 0.2), transparent 26%),
+      radial-gradient(circle at 85% 18%, rgba(56, 189, 248, 0.28), transparent 30%),
+      var(--wave-card-strong);
+  }
+
+  @media (max-width: 980px) {
+    .wave-metrics,
+    .wave-grid,
+    .wave-grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .wave-hero {
+      border-radius: 24px;
+      min-height: auto;
+    }
+
+    .wave-metrics,
+    .wave-grid,
+    .wave-grid.two,
+    .wave-role {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="wave-home">
+  <section class="wave-hero">
+    <div class="wave-hero-content">
+      <div class="wave-kicker"><span></span> Portfolio · Research · Blog · Community</div>
+      <h1 class="wave-title">Building AI systems where <span class="wave-gradient-text">physics, hardware, and deployment</span> meet.</h1>
+      <p class="wave-lede">
+        I’m Swetha Gendlur Nagarajan, an Applied Data Science graduate student at the University of Florida. I write visual guides on machine learning, digital twins, GPU acceleration, photonics, and the engineering choices that make research usable in real workflows.
+      </p>
+      <div class="wave-actions">
+        <a class="wave-button primary" href="{{ '/archives/' | relative_url }}">Read the blog →</a>
+        <a class="wave-button" href="{{ '/portfolio/' | relative_url }}">View portfolio</a>
+        <a class="wave-button" href="{{ '/community/' | relative_url }}">Join the forum plan</a>
+      </div>
+      <div class="wave-metrics" aria-label="Selected impact metrics">
+        <div class="wave-metric"><strong>8,344×</strong><span>digital-twin surrogate speedup</span></div>
+        <div class="wave-metric"><strong>R² 0.9999</strong><span>stress-aware photonics model</span></div>
+        <div class="wave-metric"><strong>1,932×</strong><span>CUDA batch inference speedup</span></div>
+        <div class="wave-metric"><strong>12M</strong><span>records served in healthcare RAG</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wave-section">
+    <div class="wave-section-head">
+      <div>
+        <h2>What I’m exploring</h2>
+        <p>A long-term writing space for ideas that connect models, machines, and messy real-world constraints.</p>
+      </div>
+    </div>
+    <div class="wave-grid">
+      <article class="wave-card">
+        <h3>Physics meets ML</h3>
+        <p>Neural surrogates, PINNs, simulation acceleration, and why physical structure matters when models leave the training distribution.</p>
+        <div class="wave-chip-row"><span class="wave-chip">PINNs</span><span class="wave-chip">Digital twins</span><span class="wave-chip">Photonics</span></div>
+      </article>
+      <article class="wave-card">
+        <h3>Hardware-aware AI</h3>
+        <p>CUDA kernels, quantization, ONNX Runtime, memory movement, and the practical edge where software design meets silicon limits.</p>
+        <div class="wave-chip-row"><span class="wave-chip">CUDA</span><span class="wave-chip">INT8 / INT6</span><span class="wave-chip">ONNX</span></div>
+      </article>
+      <article class="wave-card">
+        <h3>Deployment that disappears</h3>
+        <p>Systems that fit into existing workflows instead of asking people to change how they work: FastAPI, Docker, Kubernetes, Azure, and Spark.</p>
+        <div class="wave-chip-row"><span class="wave-chip">MLOps</span><span class="wave-chip">RAG</span><span class="wave-chip">Workflow UX</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wave-section">
+    <div class="wave-section-head">
+      <div>
+        <h2>Selected work</h2>
+        <p>Research and engineering projects with measurable outcomes.</p>
+      </div>
+      <a class="wave-button" href="{{ '/portfolio/' | relative_url }}">All work</a>
+    </div>
+    <div class="wave-grid two">
+      <article class="wave-card wave-project">
+        <h3>Stress-aware photonic digital twin</h3>
+        <p><span class="wave-result">8,344× faster</span> surrogate with <span class="wave-result">R²=0.9999</span>, deployed through ONNX inside FLOOPS for semiconductor design workflows.</p>
+      </article>
+      <article class="wave-card wave-project">
+        <h3>Healthcare RAG at Optum</h3>
+        <p>Retrieval system over <span class="wave-result">12M records</span> with <span class="wave-result">95% accuracy</span> and <span class="wave-result">40% faster retrieval</span>.</p>
+      </article>
+      <article class="wave-card wave-project">
+        <h3>CUDA batch inference</h3>
+        <p>INT8/INT6 quantization and GPU execution path delivering <span class="wave-result">1,932× speedup</span> for inference workloads.</p>
+      </article>
+      <article class="wave-card wave-project">
+        <h3>IIT Madras Research Park</h3>
+        <p>ML infrastructure work reaching <span class="wave-result">95% detection accuracy</span> and an <span class="wave-result">18% improvement</span> over baseline.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wave-section">
+    <div class="wave-grid two">
+      <div class="wave-panel">
+        <h2>Latest writing</h2>
+        <p>Regular notes, visual explainers, and research breakdowns.</p>
+        <div class="wave-post-list">
+          {% for post in site.posts limit:3 %}
+            <a class="wave-post" href="{{ post.url | relative_url }}">
+              <strong>{{ post.title }}</strong>
+              <span>{{ post.date | date: "%b %-d, %Y" }}{% if post.categories.size > 0 %} · {{ post.categories | join: ", " }}{% endif %}</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="wave-panel wave-cta">
+        <h2>Community direction</h2>
+        <p>The long-term plan is a forum-style space for readers to discuss posts, request paper explainers, share resources, and ask engineering questions. GitHub Pages will host the site; GitHub Discussions plus giscus can power the community layer.</p>
+        <a class="wave-button primary" href="{{ '/community/' | relative_url }}">See the forum roadmap →</a>
+      </div>
+    </div>
+  </section>
+</div>
