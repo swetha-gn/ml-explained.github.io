@@ -1,100 +1,58 @@
 ---
-layout: page
-title: Home
+layout: waveguide
+title: Physics-Informed AI
 permalink: /
+nav: home
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/waveguide-home.css' | relative_url }}">
-
 <section class="wg-hero">
-  <div class="wg-hero__glow wg-hero__glow--one"></div>
-  <div class="wg-hero__glow wg-hero__glow--two"></div>
-  <p class="wg-kicker">Portfolio · visual notes · research logs</p>
-  <h1>Making machine learning, photonics, chips, and complex systems easier to see.</h1>
-  <p class="wg-hero__lead">
-    WaveGuide is my living portfolio and writing lab: a place for paper explainers,
-    engineering notes, project breakdowns, and eventually a reader community around practical AI.
-  </p>
-  <div class="wg-actions">
-    <a class="wg-button wg-button--primary" href="{{ '/archives/' | relative_url }}">Read the blog</a>
-    <a class="wg-button wg-button--ghost" href="{{ '/portfolio/' | relative_url }}">View portfolio</a>
+  <div>
+    <h1 class="wg-hero__title">Physics-Informed AI</h1>
+    <p class="wg-hero__subtitle">Thoughts and notes about machine learning, scientific AI, photonics, chips, and real-world deployment.</p>
   </div>
 </section>
 
-<section class="wg-section wg-split">
-  <div>
-    <p class="wg-kicker">Current direction</p>
-    <h2>Technical depth with a visual, builder-first style.</h2>
-    <p>
-      I write about what I am learning and building across applied ML, physics-informed
-      modeling, hardware-aware deployment, photonics, semiconductors, and MLOps.
-    </p>
-  </div>
-  <div class="wg-stack">
-    <article class="wg-card">
-      <span>01</span>
-      <h3>Research explainers</h3>
-      <p>Readable notes on papers, equations, architectures, and implementation tradeoffs.</p>
-    </article>
-    <article class="wg-card">
-      <span>02</span>
-      <h3>Portfolio stories</h3>
-      <p>Case studies that connect problems, systems, metrics, deployment, and impact.</p>
-    </article>
-    <article class="wg-card">
-      <span>03</span>
-      <h3>Community roadmap</h3>
-      <p>Starting with comments and GitHub Discussions before growing into a larger forum.</p>
-    </article>
-  </div>
-</section>
+<div class="wg-rule"></div>
 
 <section class="wg-section">
-  <div class="wg-section__header">
+  <div class="wg-section__head">
     <div>
-      <p class="wg-kicker">Latest writing</p>
-      <h2>Fresh from the blog</h2>
+      <p class="wg-kicker">Latest blog</p>
+      <h2>Recent notes</h2>
     </div>
-    <a href="{{ '/archives/' | relative_url }}">All posts →</a>
+    <a class="wg-link" href="{{ '/blog/' | relative_url }}">all posts →</a>
   </div>
-  <div class="wg-post-grid">
-    {% for post in site.posts limit:3 %}
-      <article class="wg-post-card">
-        <p class="wg-post-card__meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
-        <div class="wg-tags">
-          {% for tag in post.tags limit:3 %}
-            <span>{{ tag }}</span>
-          {% endfor %}
+
+  <div class="wg-blog-list">
+    {% for post in site.posts limit:5 %}
+      <article class="wg-post">
+        <div>
+          <p class="wg-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.categories.size > 0 %} · {{ post.categories | join: ', ' }}{% endif %}</p>
+          <h2><a class="wg-link" href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <p>{{ post.excerpt | strip_html | truncate: 180 }}</p>
+          <div class="wg-chip-row">
+            {% for tag in post.tags limit:4 %}<span class="wg-chip">{{ tag }}</span>{% endfor %}
+          </div>
         </div>
+        <div class="wg-post__thumb" aria-hidden="true"></div>
       </article>
     {% endfor %}
   </div>
 </section>
 
-<section class="wg-section wg-topic-panel">
-  <p class="wg-kicker">Interests</p>
-  <h2>What you will find here</h2>
-  <div class="wg-topic-grid">
-    <div>Machine Learning</div>
-    <div>Research Papers</div>
-    <div>Photonics</div>
-    <div>Semiconductors</div>
-    <div>CUDA + Acceleration</div>
-    <div>Practical MLOps</div>
+<section class="wg-section">
+  <div class="wg-section__head">
+    <div>
+      <p class="wg-kicker">Publications</p>
+      <h2>Research column</h2>
+    </div>
+    <a class="wg-link" href="{{ '/publications/' | relative_url }}">publications →</a>
   </div>
-</section>
-
-<section class="wg-section wg-community-cta">
-  <div>
-    <p class="wg-kicker">Long-term plan</p>
-    <h2>From personal blog to thoughtful technical forum.</h2>
-    <p>
-      The first community layer will be lightweight: comments on posts and a discussion hub.
-      If readers start posting regularly, the site can grow into a full forum with authentication,
-      moderation, and a database-backed backend.
-    </p>
-  </div>
-  <a class="wg-button wg-button--primary" href="{{ '/community/' | relative_url }}">See community plan</a>
+  <article class="wg-publication">
+    <div class="wg-year">2026</div>
+    <div>
+      <h2>From ML to Physics-Informed Neural Networks</h2>
+      <p>Scalable digital twin for stress-aware design in photonic structures, presented at SPIE Photonics West 2026.</p>
+    </div>
+  </article>
 </section>

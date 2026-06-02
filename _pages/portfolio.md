@@ -1,43 +1,50 @@
 ---
-layout: page
+layout: waveguide
 title: Portfolio
 permalink: /portfolio/
+nav: portfolio
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/waveguide-home.css' | relative_url }}">
-
-<section class="wg-section wg-page-hero">
-  <p class="wg-kicker">Portfolio</p>
-  <h1>Projects at the intersection of ML, physical systems, and deployment.</h1>
-  <p>
-    This page is designed to become the public home for project case studies, research highlights,
-    demos, and engineering writeups.
-  </p>
+<section class="wg-section">
+  <h1 class="wg-page-title">Swetha Gendlur Nagarajan</h1>
+  <p class="wg-page-subtitle">Machine learning engineer and researcher focused on scientific AI, photonics, semiconductors, and deployable systems.</p>
 </section>
 
-<section class="wg-section wg-post-grid">
-  <article class="wg-card">
-    <span>Research</span>
-    <h3>Stress-aware photonic digital twin</h3>
-    <p>Physics-informed surrogate modeling for scalable stress-aware photonic structure design.</p>
-  </article>
-  <article class="wg-card">
-    <span>Systems</span>
-    <h3>Healthcare retrieval systems</h3>
-    <p>RAG workflows over large healthcare datasets with practical retrieval improvements.</p>
-  </article>
-  <article class="wg-card">
-    <span>Acceleration</span>
-    <h3>CUDA batch inference</h3>
-    <p>Hardware-aware inference, quantization, and deployment notes for real-world model speedups.</p>
-  </article>
-</section>
+<div class="wg-rule"></div>
 
-<section class="wg-section wg-community-cta">
-  <div>
-    <p class="wg-kicker">Next step</p>
-    <h2>Turn each project into a visual case study.</h2>
-    <p>Each card can later link to a dedicated writeup with diagrams, metrics, lessons learned, and code references.</p>
+<section class="wg-section">
+  <div class="wg-section__head">
+    <div>
+      <p class="wg-kicker">Portfolio</p>
+      <h2>Selected work</h2>
+    </div>
+    <a class="wg-link" href="{{ '/about/' | relative_url }}">about →</a>
   </div>
-  <a class="wg-button wg-button--ghost" href="{{ '/about/' | relative_url }}">About me</a>
+
+  <div class="wg-grid wg-grid--three">
+    <article class="wg-card">
+      <h3>Stress-aware photonic digital twin</h3>
+      <p>Physics-informed surrogate modeling for scalable stress-aware design in photonic structures.</p>
+      <div class="wg-chip-row"><span class="wg-chip">PINNs</span><span class="wg-chip">ONNX</span><span class="wg-chip">Photonics</span></div>
+    </article>
+    <article class="wg-card">
+      <h3>Healthcare retrieval systems</h3>
+      <p>RAG workflows over large healthcare datasets, focused on retrieval quality and practical latency.</p>
+      <div class="wg-chip-row"><span class="wg-chip">RAG</span><span class="wg-chip">Search</span><span class="wg-chip">Evaluation</span></div>
+    </article>
+    <article class="wg-card">
+      <h3>CUDA batch inference</h3>
+      <p>Hardware-aware inference, quantization, and deployment notes for real-world model speedups.</p>
+      <div class="wg-chip-row"><span class="wg-chip">CUDA</span><span class="wg-chip">INT8</span><span class="wg-chip">MLOps</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="wg-section">
+  <p class="wg-kicker">Impact</p>
+  <div class="wg-grid wg-grid--three">
+    <article class="wg-card"><h3>8,344× speedup</h3><p>Stress-aware photonic digital twin surrogate.</p></article>
+    <article class="wg-card"><h3>R²=0.9999</h3><p>High-fidelity surrogate prediction target.</p></article>
+    <article class="wg-card"><h3>1,932× speedup</h3><p>CUDA batch inference acceleration.</p></article>
+  </div>
 </section>

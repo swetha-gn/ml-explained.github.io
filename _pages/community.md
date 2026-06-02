@@ -1,47 +1,31 @@
 ---
-layout: page
+layout: waveguide
 title: Community
 permalink: /community/
+nav: community
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/waveguide-home.css' | relative_url }}">
-
-<section class="wg-section wg-page-hero">
-  <p class="wg-kicker">Community roadmap</p>
-  <h1>A practical path from blog comments to a real forum.</h1>
-  <p>
-    GitHub Pages is excellent for the public website and blog. For reader posts, accounts,
-    moderation, and persistent discussions, the site should connect to an external community backend.
-  </p>
+<section class="wg-section">
+  <h1 class="wg-page-title">Community</h1>
+  <p class="wg-page-subtitle">Start with blog comments and categories. Add a full forum only when readers need accounts, profiles, and independent posts.</p>
 </section>
 
-<section class="wg-section wg-stack">
-  <article class="wg-card">
-    <span>Phase 1</span>
-    <h3>Publish consistently</h3>
-    <p>Use Markdown posts for explainers, research notes, project logs, and learning summaries.</p>
-  </article>
-  <article class="wg-card">
-    <span>Phase 2</span>
-    <h3>Add discussion per post</h3>
-    <p>Enable a GitHub-powered comment system such as Giscus once repository Discussions are configured.</p>
-  </article>
-  <article class="wg-card">
-    <span>Phase 3</span>
-    <h3>Launch a full forum when needed</h3>
-    <p>Move to Discourse, Supabase, Firebase, or another backend if users need accounts and independent posting.</p>
-  </article>
-</section>
+<div class="wg-rule"></div>
 
-<section class="wg-section wg-topic-panel">
-  <p class="wg-kicker">Forum categories</p>
-  <h2>Future discussion spaces</h2>
-  <div class="wg-topic-grid">
-    <div>Paper discussions</div>
-    <div>ML implementation help</div>
-    <div>Photonics + chips</div>
-    <div>Career notes</div>
-    <div>Project feedback</div>
-    <div>Reading groups</div>
+<section class="wg-section">
+  <p class="wg-kicker">Roadmap</p>
+  <div class="wg-grid wg-grid--three">
+    <article class="wg-card">
+      <h3>1. Write regularly</h3>
+      <p>Build the blog around scientific AI, papers, systems, and portfolio notes.</p>
+    </article>
+    <article class="wg-card">
+      <h3>2. Add comments</h3>
+      <p>Use GitHub Discussions with a tool such as Giscus for lightweight post conversations.</p>
+    </article>
+    <article class="wg-card">
+      <h3>3. Grow into a forum</h3>
+      <p>Move to Discourse, Supabase, Firebase, or a custom backend if user-generated posts become important.</p>
+    </article>
   </div>
 </section>
