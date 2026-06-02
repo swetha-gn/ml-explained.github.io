@@ -1,0 +1,114 @@
+---
+layout: page
+title: Home
+permalink: /
+icon: fas fa-home
+order: 1
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/waveguide.css' | relative_url }}">
+
+<div class="waveguide-page wg-shell">
+  <section class="wg-hero">
+    <div>
+      <p class="wg-eyebrow">WaveGuide · ML explained visually</p>
+      <h1>Portfolio, research notes, and visual guides for practical AI.</h1>
+      <p class="wg-lede">
+        I am building this site as a long-term technical home: part portfolio, part blog,
+        part lab notebook, and eventually a community for discussing ML systems, papers,
+        photonics, semiconductors, and deployment.
+      </p>
+      <div class="wg-actions">
+        <a class="wg-button wg-button--primary" href="{{ '/archives/' | relative_url }}">Start reading</a>
+        <a class="wg-button wg-button--ghost" href="{{ '/portfolio/' | relative_url }}">Explore projects</a>
+        <a class="wg-button wg-button--ghost" href="{{ '/community/' | relative_url }}">Community plan</a>
+      </div>
+    </div>
+
+    <div class="wg-orbit" aria-hidden="true">
+      <div class="wg-orbit__ring"></div>
+      <div class="wg-orbit__core"></div>
+      <div class="wg-orbit__label">Research papers</div>
+      <div class="wg-orbit__label">Digital twins</div>
+      <div class="wg-orbit__label">GPU deployment</div>
+      <div class="wg-orbit__label">Visual explainers</div>
+    </div>
+  </section>
+
+  <section class="wg-panel wg-grid wg-grid--two">
+    <div>
+      <p class="wg-eyebrow">What this site is becoming</p>
+      <h2>A personal technical magazine with a builder's roadmap.</h2>
+      <p>
+        The site should do three jobs well: present my work clearly, make hard topics easier
+        to understand, and give readers a place to react, ask questions, and eventually post.
+      </p>
+    </div>
+    <div class="wg-grid">
+      <article class="wg-card wg-card--accent">
+        <p class="wg-card__meta">Portfolio</p>
+        <h3>Case studies over resume bullets</h3>
+        <p>Project stories can show the problem, system design, constraints, metrics, and lessons learned.</p>
+      </article>
+      <article class="wg-card">
+        <p class="wg-card__meta">Blog</p>
+        <h3>Regular posts that compound</h3>
+        <p>Short notes, paper explainers, and visual breakdowns make the site useful even before a forum exists.</p>
+      </article>
+      <article class="wg-card">
+        <p class="wg-card__meta">Community</p>
+        <h3>Static site first, external backend later</h3>
+        <p>GitHub Pages can host the site, while comments, discussions, and future user posts live in a connected service.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wg-panel">
+    <div class="wg-section-head">
+      <div>
+        <p class="wg-eyebrow">Latest writing</p>
+        <h2>New notes from the blog</h2>
+      </div>
+      <a href="{{ '/archives/' | relative_url }}">View archive →</a>
+    </div>
+    <div class="wg-post-grid">
+      {% for post in site.posts limit:3 %}
+        <article class="wg-card">
+          <p class="wg-card__meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p>{{ post.excerpt | strip_html | truncate: 150 }}</p>
+          <div class="wg-tags">
+            {% for tag in post.tags limit:3 %}
+              <span>{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="wg-panel">
+    <p class="wg-eyebrow">Core topics</p>
+    <h2>Interests that shape the site</h2>
+    <div class="wg-topic-grid">
+      <div>Machine Learning</div>
+      <div>Research Papers</div>
+      <div>Photonics</div>
+      <div>Semiconductors</div>
+      <div>CUDA + Acceleration</div>
+      <div>Practical MLOps</div>
+    </div>
+  </section>
+
+  <section class="wg-panel wg-community-banner">
+    <div>
+      <p class="wg-eyebrow">Forum roadmap</p>
+      <h2>Start lightweight. Grow only when readers need more.</h2>
+      <p>
+        The right first step is comments or GitHub Discussions. A full forum can come later
+        when the site needs user accounts, moderation workflows, and persistent user-generated posts.
+      </p>
+    </div>
+    <a class="wg-button wg-button--primary" href="{{ '/community/' | relative_url }}">See roadmap</a>
+  </section>
+</div>

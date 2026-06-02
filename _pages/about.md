@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title: About
@@ -30,3 +29,6 @@ My current work sits at the intersection of machine learning, photonics, semicon
 - Developed CUDA batch inference with INT8/INT6 quantization and **1,932× speedup**.
 
 ## Connect
+
+- GitHub: [swetha-gn](https://github.com/swetha-gn)
+- Email: [sgendlurnagarajan@gmail.com](mailto:sgendlurnagarajan@gmail.com)
