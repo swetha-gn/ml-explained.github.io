@@ -27,6 +27,8 @@ comments:
   active: ""
 
 paginate: 10
+include:
+  - _pages
 
 kramdown:
   syntax_highlighter: rouge
